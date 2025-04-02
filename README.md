@@ -2,65 +2,74 @@
 <img src="https://i.imgur.com/Clzj7Xs.png" alt="osTicket logo"/>
 </p>
 
-<h1>osTicket - Post Installation and Configuration</h1>
-This tutorial outlines the post installation of the open-source help desk ticketing system osTicket and it's configurations.<br />
+# osTicket - Post-Install Configuration
 
+This guide covers the post-install setup of the open-source help desk ticketing system osTicket.
 
-<h2>osTicket Website</h2>
-
-- ### [osTicket Installation Files](https://docs.osticket.com/en/latest/Getting%20Started/Installation.html)
-
-<h2>Environments and Technologies Used</h2>
+## Environments and Technologies Used
 
 - Microsoft Azure (Virtual Machines/Compute)
 - Remote Desktop
-- Internet Information Services (IIS)
+- osTicket
 
-<h2>Operating Systems Used </h2>
+## Operating Systems Used
 
-- Windows 10</b> (21H2)
+- Windows 10 (21H2)
 
-<h2>List of Prerequisites</h2>
+## Post-Install Configuration Objectives
 
-- Configure roles to group permissions
-- Configure departments
-- Configure teams
-- Adjust user settings
-- Configure agents
-- Configure users
-- Configure SLA
-  
+- Configure Roles
+- Configure Departments
+- Configure Teams
+- Configure Agents & Users
+- Configure SLA and Help Topics
 
-<h2>Installation Steps</h2>
-
-
-![Screenshot 2025-04-01 234200](https://github.com/user-attachments/assets/2bac7af1-126b-42ea-909d-486fa999b0a9)
+## Configuration Steps
 
 <p>
-To set up the system, start by configuring roles to group permissions. First, navigate to the Admin Panel, then go to Agents, and select Roles. Here, create a role called Supreme Admin. Next, configure departments to manage ticket visibility, such as separating Help Desk, SysAdmins, and Networking. To do this, go to the Admin Panel, then Agents, and select Departments. Create a department named SysAdmins. After that, configure teams by pulling agents from different departments. Head to the Admin Panel, then Agents, and select Teams. Set up a team called Online Banking.
+  <img width="656" alt="image" src="https://github.com/user-attachments/assets/a53444c2-8a25-435e-a9e2-caa1c7fcb74e" />
+</p>
+<p>
+After installing osTicket and logging in with admin credentials, you’ll land on the Admin Panel. To set up roles, go to Agents -> Roles. Rename an existing role or click "Add New Role" to create one. I renamed an "All Access" role to "Supreme Admin" with full permissions. For departments and teams, click their tabs (Agents -> Departments or Teams) and configure as needed - e.g., a "SysAdmins" department and an "Online Banking" team.
 </p>
 <br />
 
-
-![Screenshot 2025-04-01 235104](https://github.com/user-attachments/assets/a786c102-fffc-48d7-b067-d2683402353b)
-
 <p>
-To ensure anyone can create tickets only after registering, adjust the user settings. Go to the Admin Panel, then Settings, and select User Settings. Uncheck the option that says "unregistered users can create tickets" and enable the setting that requires registration and login to create tickets. Now, configure agents, who are the workers. Navigate to the Admin Panel, then Agents, and choose Add New. Add an agent named Jane, assigning her to the SysAdmins department, and add another agent named John, assigning him to the Support department.
-<br />
-
-
-![Screenshot 2025-04-01 235454](https://github.com/user-attachments/assets/018cc4c6-f885-4770-9f4c-f19c98a36384)
-
+<img width="665" alt="image" src="https://github.com/user-attachments/assets/246a7bcb-7b31-4b1f-98f1-ecacdf61847a" />
+</p>
 <p>
-Next, configure users, who are the customers. Go to the Agent Panel, then Users, and select Add New. Add a user named Karen, followed by another user named Ken. After that, configure the Service Level Agreements, or SLA. Head to the Admin Panel, then Manage, and select SLA. Create an SLA called Sev-A with a grace period of 1 hour and a 24/7 schedule. Then, create Sev-B with a grace period of 4 hours and a 24/7 schedule. Finally, create Sev-C with a grace period of 8 hours and a schedule limited to business hours.
+To let anyone submit tickets without registering, go to Admin Panel -> Settings -> Users -> uncheck "Require registration and login to create tickets". For stricter control, check it and require login instead.
 </p>
 <br />
 
-
-![Screenshot 2025-04-01 235942](https://github.com/user-attachments/assets/eb4efcec-6d84-4895-85e6-db29eafbff77)
-
 <p>
-Lastly, configure help topics for when users create tickets. Go to the Admin Panel, then Manage, and select Help Topics. Add a help topic called Business Critical Outage. Then, add another called Personal Computer Issues, followed by Equipment Request, Password Reset, and Other. By following these steps, you’ll have the system configured with all the necessary roles, departments, teams, settings, agents, users, SLAs, and help topics.
-</p> 
+<img width="653" alt="image" src="https://github.com/user-attachments/assets/3f97306d-d5e0-410e-86fe-2e7b26617e12" />
+</p>
+<p>
+To add agents (workers), go to Admin Panel -> Agents -> Add New. Create an agent like "Jane" under the Account tab, then set her department (e.g., SysAdmins), access, and teams in their respective tabs.
+</p>
 <br />
 
+<p>
+  <img width="681" alt="image" src="https://github.com/user-attachments/assets/1418add2-7e62-4d75-9e29-f9b33a5462a7" />
+</p>
+<p>
+To add users (customers), switch to the Agent Panel by clicking it in the top-right corner. Then go to Users -> Add New, fill in details for someone like "Karen", and save.
+</p>
+<br />
+
+<p>
+  <img width="656" alt="image" src="https://github.com/user-attachments/assets/43ea3728-aa1c-4038-a222-68db119560f1" />
+</p>
+<p>
+For Service Level Agreements (SLAs), return to the Admin Panel -> Manage -> SLA -> Add New SLA Plan. Set up one like "Sev-A" with a 1-hour grace period and 24/7 schedule, then click "Add Plan". Repeat for others like "Sev-B" (4 hours, 24/7) or "Sev-C" (8 hours, business hours).
+</p>
+<br />
+
+<p>
+  <img width="673" alt="image" src="https://github.com/user-attachments/assets/31f4e2b9-8af3-454c-adec-f5961e9f7573" />
+</p>
+<p>
+Finally, set up Help Topics to categorize tickets. Go to Admin Panel -> Manage -> Help Topics -> Add New Help Topic. Add options like "Business Critical Outage", "Personal Computer Issues", or "Password Reset", setting their priority and department as needed.
+</p>
+<br />
